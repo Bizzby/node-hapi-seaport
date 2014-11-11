@@ -1,6 +1,6 @@
 {
   "name": "hapi-seaport",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "hapi plugin to create seaport client",
   "main": "index.js",
   "scripts": {
@@ -15,5 +15,8 @@
     "seaport"
   ],
   "author": "sandfox",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "seaport": "^2.0.9"
+  }
 }
