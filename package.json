@@ -1,0 +1,15 @@
+{
+  "name": "hapi-seaport",
+  "version": "1.0.0",
+  "description": "hapi plugin to create seaport client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hapi",
+    "seaport"
+  ],
+  "author": "sandfox",
+  "license": "MIT"
+}
