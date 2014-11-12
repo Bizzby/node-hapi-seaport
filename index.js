@@ -14,13 +14,20 @@ exports.register = function (plugin, options, next) {
 
     var s = seaport.connect(options.server.port, options.server.host, options.opts);
 
-    s.on("disconnect", function(err){
+    function disconnected(){
+        s.once("connect", connected)
         plugin.log([ 'hapi-seaport', 'disconnect' ], "disconnected from seaport server")
-    })
+    }
+
+    function connected(){
+        s.once("disconnect", disconnected)
+        plugin.log([ 'hapi-seaport', 'connect' ], "connected to seaport server")
+    }
+
+    s.once("connect", connected);
 
     s.on('synced', function(){
         plugin.log(['hapi-seaport', 'sync'], "synchronised with seaport server")
-        next()
     })
 
     s.once('synced', function(){
