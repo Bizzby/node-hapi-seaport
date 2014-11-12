@@ -12,22 +12,22 @@ exports.register = function (plugin, options, next) {
         options.server = parseUri(options.server);
     }
 
-    seaport.connect(options.server.port, options.server.host, options.opts);
+    var s = seaport.connect(options.server.port, options.server.host, options.opts);
 
-    seaport.on("disconnect", function(err){
+    s.on("disconnect", function(err){
         plugin.log([ 'hapi-seaport', 'disconnect' ], "disconnected from seaport server")
     })
 
-    seaport.on('synced', function(){
+    s.on('synced', function(){
         plugin.log(['hapi-seaport', 'sync'], "synchronised with seaport server")
         next()
     })
 
-    seaport.once('synced', function(){
+    s.once('synced', function(){
         next()
     })
 
-    plugin.expose('client', seaport);
+    plugin.expose('client', s);
 
 
 }

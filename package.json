@@ -1,6 +1,6 @@
 {
   "name": "hapi-seaport",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "hapi plugin to create seaport client",
   "main": "index.js",
   "scripts": {
